@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { tools, priorityMeta, toolsByPriority, type Priority } from '../data/tools';
+
+const priorityOrder: Priority[] = ['P0', 'P1', 'P2'];
+const totalTools = tools.length;
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HyperGrad DevTools — 纯前端开发者工具箱 · 100% 本地处理</title>
+  <meta name="description" content="20+ 开发者在线工具：JSON 格式化、正则测试、加密解密、时间戳转换、进制转换、URL 编码、二维码、图片压缩、PDF 合并等。所有计算在浏览器本地完成，数据不离开你的设备。" />
+  <meta name="keywords" content="在线工具,开发者工具,json格式化,正则表达式,加密解密,时间戳转换,进制转换,url编码,base64,二维码,图片压缩,pdf合并,sql格式化,uuid,jwt" />
+  <link rel="canonical" href="https://devtools.hypergrad.cn/" />
+  <meta property="og:title" content="HyperGrad DevTools — 纯前端开发者工具箱" />
+  <meta property="og:description" content="20+ 开发者在线工具，100% 本地处理，数据不离开浏览器。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <!-- DeepSeal 推广条 -->
+  <div class="promo-banner" id="promo-banner">
+    <span>
+      <strong>DeepSeal</strong> — 本地加密笔记应用，你的隐私只有你说了算。
+      <a href="https://hypergrad.cn#pricing" target="_blank" rel="noopener">免费下载 →</a>
+    </span>
+    <span class="promo-close" onclick="document.getElementById('promo-banner').style.display='none'">×</span>
+  </div>
+
+  <Header />
+
+  <main class="main" style="max-width: var(--content-max); margin: 0 auto;">
+    <!-- Hero -->
+    <section class="home-hero">
+      <div class="privacy-badge">20+ 工具 · 100% 本地处理 · 零追踪</div>
+      <h1>纯前端开发者工具箱<br>数据不离开浏览器</h1>
+      <p>
+        JSON 格式化、正则测试、加密解密、时间戳转换、二维码、图片压缩…{totalTools} 个开发者常用工具。
+        所有计算在浏览器本地完成，不上传、不追踪、不存储。与 DeepSeal 加密笔记应用同属 HyperGrad 生态。
+      </p>
+    </section>
+
+    <!-- 按优先级分区 -->
+    {priorityOrder.map(p => {
+      const list = toolsByPriority(p);
+      const meta = priorityMeta[p];
+      return (
+        <section class="priority-section">
+          <div class="priority-header">
+            <h2>{meta.label}</h2>
+            <span class="priority-tag" style={`background:${meta.bg};color:${meta.color}`}>{p} · {list.length} 个</span>
+            <span class="priority-desc">{meta.desc}</span>
+          </div>
+          <div class="tool-grid">
+            {list.map(t => (
+              <a href={`/${t.slug}`} class="tool-card-home">
+                <div class="card-icon">{t.icon}</div>
+                <h3>{t.name}</h3>
+                <p>{t.desc}</p>
+                <div class="card-meta">
+                  <span>{t.category}</span>
+                  <span>日均 {t.volume} 搜索</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      );
+    })}
+
+    <!-- 关于 -->
+    <section class="seo-content">
+      <h2>关于 HyperGrad DevTools</h2>
+      <p>
+        HyperGrad DevTools 是一个纯前端的开发者工具集合，收录了 <strong>{totalTools} 个</strong>日常开发中高频使用的在线工具。
+        与其他在线工具站不同，本站所有工具的计算都在<strong>浏览器本地</strong>完成——你粘贴的 JSON、输入的加密内容、上传的图片和 PDF，
+        永远不会通过网络发送到任何服务器。这意味着：
+      </p>
+      <ul>
+        <li><strong>隐私安全</strong>：即使处理生产环境数据、密钥、配置文件，也无需担心泄露。</li>
+        <li><strong>离线可用</strong>：页面加载完成后，断网也能继续使用（PWA 支持）。</li>
+        <li><strong>速度快</strong>：无网络往返，所有操作即时响应。</li>
+        <li><strong>无广告</strong>：首年完全无广告，专注于体验。</li>
+      </ul>
+      <h3>与 DeepSeal 的关系</h3>
+      <p>
+        HyperGrad DevTools 与 <a href="https://hypergrad.cn" target="_blank" rel="noopener">DeepSeal 加密笔记应用</a>
+        同属 HyperGrad 生态。DeepSeal 是一款本地加密的桌面笔记应用，采用三层信封加密架构，数据永不离开设备。
+        两款产品共享同一个核心理念：<strong>你的隐私只有你说了算</strong>。
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</body>
+</html>

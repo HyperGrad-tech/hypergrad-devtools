@@ -1,0 +1,20 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import HtmlFormatter from '../components/tools/HtmlFormatter.tsx';
+---
+<ToolLayout slug="html-formatter">
+  <HtmlFormatter client:load />
+  <div slot="seo-content">
+    <h2>HTML 格式化与压缩工具</h2>
+    <p>在线美化、压缩 HTML 代码。美化基于 Prettier html 引擎，正确处理嵌套标签缩进。压缩模式去除注释、折叠标签间空白，适合减小首页体积、提升页面加载速度。</p>
+    <h3>压缩注意事项</h3>
+    <ul>
+      <li>压缩会移除所有 HTML 注释。</li>
+      <li>标签间的空白被折叠，但 <code>&lt;pre&gt;</code>、<code>&lt;textarea&gt;</code> 标签内的空白属于内容，建议压缩前单独检查。</li>
+      <li>内联 <code>&lt;script&gt;</code>、<code>&lt;style&gt;</code> 内容不做压缩，避免破坏语法。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">压缩后布局错乱怎么办？</div><div class="faq-a">通常是行内元素（如 span、a）之间的空白被折叠导致间距消失。压缩前给这些元素显式设置 margin，或保留格式化模式。</div></div>
+    <div class="faq-item"><div class="faq-q">支持 Vue / JSX 模板吗？</div><div class="faq-a">本工具按标准 HTML 解析。Vue 单文件模板、JSX 含自定义组件的语法可能无法完美格式化，建议用对应语言专门的格式化器。</div></div>
+  </div>
+</ToolLayout>

@@ -1,0 +1,20 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import RadixConverter from '../components/tools/RadixConverter.tsx';
+---
+<ToolLayout slug="radix">
+  <RadixConverter client:load />
+  <div slot="seo-content">
+    <h2>进制转换工具</h2>
+    <p>支持二进制、八进制、十进制、十六进制互转。基于 BigInt 实现，支持任意大数，无 JavaScript Number 类型 53 位精度限制。所有进制框均可直接编辑反向转换。</p>
+    <h3>常见场景</h3>
+    <ul>
+      <li>颜色值转换：十六进制颜色 ↔ 十进制 RGB</li>
+      <li>权限位运算：Linux 文件权限（如 755）的八进制表示</li>
+      <li>协议开发：网络协议字段、位移操作</li>
+      <li>调试：内存地址、寄存器值的十六进制查看</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">为什么 JavaScript 的进制转换大数会出错？</div><div class="faq-a">JavaScript Number 类型是 64 位浮点，安全整数上限是 2^53 - 1。超过此值精度丢失。本工具使用 BigInt，可处理任意长度整数。</div></div>
+  </div>
+</ToolLayout>

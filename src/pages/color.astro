@@ -1,0 +1,21 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import ColorConverter from '../components/tools/ColorConverter.tsx';
+---
+<ToolLayout slug="color">
+  <ColorConverter client:load />
+  <div slot="seo-content">
+    <h2>颜色转换工具</h2>
+    <p>HEX、RGB、HSL 三种颜色模型互转，含实时色块预览、滑动调色、预设色板、点击复制。调任一模型其余两个同步更新，适合前端配色和 UI 设计。</p>
+    <h3>三种模型说明</h3>
+    <ul>
+      <li><strong>HEX</strong>：十六进制表示，如 <code>#2D5F8A</code>，CSS / 设计稿最常用。</li>
+      <li><strong>RGB</strong>：红绿蓝三通道 0-255，如 <code>rgb(45, 95, 138)</code>，屏幕显示基础。</li>
+      <li><strong>HSL</strong>：色相 H（0-360）、饱和度 S、亮度 L（百分比），如 <code>hsl(207, 51%, 36%)</code>，调色更直观。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">HSL 和 HSV 有什么区别？</div><div class="faq-a">HSL 的 L=100% 是纯白，L=50% 是纯色；HSV 的 V=100% 是纯色。CSS 原生支持 HSL，本工具使用 HSL 与 CSS 一致。</div></div>
+    <div class="faq-item"><div class="faq-q">支持 8 位 HEX（含透明度）吗？</div><div class="faq-a">当前支持 6 位 HEX 与 3 位缩写。8 位透明度 HEX（如 #2D5F8AFF）可读取但不解析 alpha 通道，后续可扩展。</div></div>
+    <div class="faq-item"><div class="faq-q">为什么我输入的 HEX 没反应？</div><div class="faq-a">请确认是 3 位或 6 位合法十六进制（0-9、a-f），可带可不带 # 号。非法字符会跳过同步。</div></div>
+  </div>
+</ToolLayout>

@@ -1,0 +1,21 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import JsFormatter from '../components/tools/JsFormatter.tsx';
+---
+<ToolLayout slug="js-formatter">
+  <JsFormatter client:load />
+  <div slot="seo-content">
+    <h2>JavaScript 格式化与压缩工具</h2>
+    <p>在线美化、压缩 JavaScript 代码。美化基于 Prettier 引擎，支持自定义分号、引号、缩进、行宽、尾随逗号。压缩模式做空白紧凑处理，保留换行以防止 ASI（自动分号插入）带来的语法错误。</p>
+    <h3>格式化选项说明</h3>
+    <ul>
+      <li><strong>分号</strong>：是否在语句结尾加分号，遵循 Standard 风格时选择关。</li>
+      <li><strong>单引号</strong>：字符串使用单引号还是双引号。</li>
+      <li><strong>行宽</strong>：超过该宽度的代码会自动换行，默认 100。</li>
+      <li><strong>尾随逗号</strong>：all（推荐，方便 git diff）、es5、none。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">压缩会破坏代码逻辑吗？</div><div class="faq-a">本工具的压缩保留换行符，仅折叠多余空白和移除块注释，不会触发 ASI 问题。但行注释（//）会保留，以免误删带 // 的 URL。生产环境建议用专门的压缩工具（如 Terser）做变量混淆和死代码消除。</div></div>
+    <div class="faq-item"><div class="faq-q">支持 ES6+ 和 JSX 语法吗？</div><div class="faq-a">支持 ES6+ 全部语法。纯 JSX 需使用专门的 JSX 格式化器，本工具以 babel parser 解析标准 JS。</div></div>
+  </div>
+</ToolLayout>

@@ -1,0 +1,21 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import ImageCompress from '../components/tools/ImageCompress.tsx';
+---
+<ToolLayout slug="image-compress">
+  <ImageCompress client:load />
+  <div slot="seo-content">
+    <h2>在线图片压缩工具</h2>
+    <p>压缩 PNG、JPEG、WebP 图片，可调质量、缩放尺寸，浏览器本地处理，原图和新图都不会上传到任何服务器。压缩前后对比展示，并实时显示压缩率与节省的体积。</p>
+    <h3>三种格式对比</h3>
+    <ul>
+      <li><strong>JPEG</strong>：有损压缩，体积小，不支持透明通道，适合作照片截图。</li>
+      <li><strong>WebP</strong>：现代格式，同质量下比 JPEG 更小约 25%-35%，支持透明。</li>
+      <li><strong>PNG</strong>：无损压缩，支持透明，体积较大，适合作图标、线稿。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">压缩后图片会变模糊吗？</div><div class="faq-a">取决于质量参数。JPEG/WebP 质量越高越清晰但体积越大。一般 75%-85% 是清晰与体积的最佳平衡点，肉眼几乎看不出差异。</div></div>
+    <div class="faq-item"><div class="faq-q">为什么 PNG 压不出来更小？</div><div class="faq-a">PNG 是无损格式，质量参数对它无效。要进一步压缩 PNG 请改用 WebP，或在「最大宽度」里缩小尺寸。</div></div>
+    <div class="faq-item"><div class="faq-q">图片会上传服务器吗？</div><div class="faq-a">不会。本工具基于浏览器 Canvas API 完整在本地处理，断网也能用，适合处理含隐私信息的截图。</div></div>
+  </div>
+</ToolLayout>

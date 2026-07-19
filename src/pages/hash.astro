@@ -1,0 +1,21 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import HashGenerator from '../components/tools/HashGenerator.tsx';
+---
+<ToolLayout slug="hash">
+  <HashGenerator client:load />
+  <div slot="seo-content">
+    <h2>哈希生成器</h2>
+    <p>同时生成 MD5、SHA-1、SHA-256、SHA-512 哈希，支持 HMAC 带密钥哈希。SHA-256 是当前推荐的安全哈希算法。</p>
+    <h3>算法对比</h3>
+    <ul>
+      <li><strong>MD5</strong>（128 位）：已不安全，存在碰撞，仅用于非安全场景的校验和。</li>
+      <li><strong>SHA-1</strong>（160 位）：已被攻破，不推荐用于新场景。</li>
+      <li><strong>SHA-256</strong>（256 位）：当前主流，用于区块链、TLS 证书、密码加盐哈希。</li>
+      <li><strong>SHA-512</strong>（512 位）：更长，安全性更高，但速度稍慢。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">哈希和加密有什么区别？</div><div class="faq-a">哈希是单向的，无法从哈希值还原原文；加密是双向的，可解密。哈希用于校验完整性、密码存储；加密用于保护数据机密性。</div></div>
+    <div class="faq-item"><div class="faq-q">HMAC 是什么？</div><div class="faq-a">HMAC（Hash-based Message Authentication Code）是带密钥的哈希，用于验证消息完整性和真实性。只有知道密钥的人才能生成有效的 HMAC。</div></div>
+  </div>
+</ToolLayout>

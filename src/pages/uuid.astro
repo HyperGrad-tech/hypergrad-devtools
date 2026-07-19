@@ -1,0 +1,21 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import UuidGenerator from '../components/tools/UuidGenerator.tsx';
+---
+<ToolLayout slug="uuid">
+  <UuidGenerator client:load />
+  <div slot="seo-content">
+    <h2>UUID 生成器</h2>
+    <p>批量生成 UUID（统一唯一标识符），支持 v4 随机版本和 v7 时间排序版本，可选大写、去横线输出，一次最多生成 1000 个并一键复制。</p>
+    <h3>UUID 版本对比</h3>
+    <ul>
+      <li><strong>UUID v4</strong>：基于随机数生成，全局唯一性靠随机空间（122 位）保证，最常用。</li>
+      <li><strong>UUID v7</strong>：RFC 9562 新标准，前 48 位为毫秒时间戳，按时间排序，适合数据库索引和日志检索。</li>
+      <li><strong>GUID</strong>：微软对 UUID 的称呼，与 UUID v4 等价，本工具可直接生成 GUID。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">UUID 真的不会重复吗？</div><div class="faq-a">UUID v4 有 122 位随机空间，理论碰撞概率极低。生成 10 亿个 UUID 后碰撞概率仍不到十亿分之一。日常使用可视为全局唯一。</div></div>
+    <div class="faq-item"><div class="faq-q">v4 和 v7 我应该选哪个？</div><div class="faq-a">没有排序需求选 v4；若用作数据库主键或按时间检索（如日志、事件流），选 v7，其时间前缀让 B+ 树索引更紧凑、范围查询更快。</div></div>
+    <div class="faq-item"><div class="faq-q">去横线后还能用吗？</div><div class="faq-a">可以。横线只是展示用的分隔符，去掉后仍是合法的 32 位十六进制字符串，常用作文件名、Redis key 等场景。</div></div>
+  </div>
+</ToolLayout>

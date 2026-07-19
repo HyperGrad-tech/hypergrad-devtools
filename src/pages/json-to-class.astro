@@ -1,0 +1,32 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import JsonToClass from '../components/tools/JsonToClass.tsx';
+---
+<ToolLayout slug="json-to-class">
+  <JsonToClass client:load />
+  <div slot="seo-content">
+    <h2>JSON 转实体类工具</h2>
+    <p>把 JSON 数据自动转为 Java、C#、Go、Python、TypeScript 实体类。支持嵌套对象、数组、null 字段的类型推断，自动生成多个关联类，类名可自定义。</p>
+    <h3>类型推断规则</h3>
+    <ul>
+      <li><strong>字符串</strong>：String / string / str</li>
+      <li><strong>整数</strong>：按数值大小选 Integer 或 Long（Java）、int 或 long（C#）、int64（Go）</li>
+      <li><strong>小数</strong>：Double / double / float64 / float</li>
+      <li><strong>布尔</strong>：boolean / bool</li>
+      <li><strong>数组</strong>：List&lt;T&gt; / []T / List[T] / T[]</li>
+      <li><strong>对象</strong>：生成嵌套类，字段类型引用类名</li>
+      <li><strong>null</strong>：Object / object / interface{'{}'} / Any / null</li>
+    </ul>
+    <h3>各语言输出特点</h3>
+    <ul>
+      <li><strong>Java</strong>：私有字段 + getter/setter 方法，含 import。</li>
+      <li><strong>C#</strong>：自动属性 <code>{'{ get; set; }'}</code>，含 using。</li>
+      <li><strong>Go</strong>：struct + json tag，含 package。</li>
+      <li><strong>Python</strong>：@dataclass 数据类，类型注解。</li>
+      <li><strong>TypeScript</strong>：interface 接口定义。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">数组里的对象会被识别吗？</div><div class="faq-a">会。本工具取数组第一个元素作为元素类型样本，生成对应的嵌套类，数组字段类型转为 List&lt;元素类&gt;。建议传入结构完整的样本数据。</div></div>
+    <div class="faq-item"><div class="faq-q">字段值为 null 时怎么处理？</div><div class="faq-a">null 会推断为通用 Object / object / interface{'{}'} / Any / null。建议用含真实值的样本，或生成后手动调整为更精确的类型。</div></div>
+  </div>
+</ToolLayout>

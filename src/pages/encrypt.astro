@@ -1,0 +1,22 @@
+---
+import ToolLayout from '../layouts/ToolLayout.astro';
+import EncryptTool from '../components/tools/EncryptTool.tsx';
+---
+<ToolLayout slug="encrypt">
+  <EncryptTool client:load />
+  <div slot="seo-content">
+    <h2>在线加密解密工具</h2>
+    <p>支持 MD5、SHA-1、SHA-256、SHA-512 哈希，Base64 编码，AES、DES 对称加密，URL 编解码。全部在浏览器本地计算，不上传任何数据。</p>
+    <h3>算法说明</h3>
+    <ul>
+      <li><strong>MD5 / SHA 系列</strong>：单向哈希，不可逆。常用于密码存储、数据完整性校验。</li>
+      <li><strong>Base64</strong>：编码（非加密），可将二进制数据转为 ASCII 字符串。常用于图片内嵌、数据传输。</li>
+      <li><strong>AES / DES</strong>：对称加密，加密和解密使用同一密钥。AES 是当前主流，DES 已不推荐用于新场景。</li>
+      <li><strong>URL 编码</strong>：将特殊字符转为 %XX 形式，用于 URL 参数传递。</li>
+    </ul>
+    <h3>常见问题</h3>
+    <div class="faq-item"><div class="faq-q">MD5 可以解密吗？</div><div class="faq-a">不能。MD5 是单向哈希，无法逆向还原。网上的「MD5 解密」站点本质是彩虹表查询，只能反查常见字符串。</div></div>
+    <div class="faq-item"><div class="faq-q">AES 解密时提示「解密失败」？</div><div class="faq-a">请确认密钥与加密时一致，且数据是完整的 Base64 密文。本工具使用 ECB 模式 + PKCS7 填充。</div></div>
+    <div class="faq-item"><div class="faq-q">我的密钥会被上传吗？</div><div class="faq-a">不会。所有加密解密在浏览器本地完成，密钥和明文都不会离开你的设备。</div></div>
+  </div>
+</ToolLayout>
