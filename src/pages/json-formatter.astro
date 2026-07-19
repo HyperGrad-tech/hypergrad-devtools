@@ -30,18 +30,5 @@ const slug = 'json-formatter';
       <li>点击「复制」将结果复制到剪贴板。</li>
     </ol>
 
-    <h3>常见问题</h3>
-    <div class="faq-item">
-      <div class="faq-q">JSON 格式化报错「Unexpected token」是什么原因？</div>
-      <div class="faq-a">最常见原因是 JSON 中包含单引号、尾随逗号、注释或未转义的特殊字符。JSON 标准要求字符串必须用双引号，最后一个元素后不能有逗号。</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">这个工具会上传我的 JSON 数据吗？</div>
-      <div class="faq-a">不会。本工具是纯前端实现，所有解析和格式化都在你的浏览器中完成，数据不会通过网络发送到任何服务器。</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">支持多大的 JSON 文件？</div>
-      <div class="faq-a">浏览器原生 JSON.parse 可处理数 MB 的数据，常规接口返回的 JSON 都能流畅处理。超过 10MB 可能会卡顿。</div>
-    </div>
   </div>
 </ToolLayout>

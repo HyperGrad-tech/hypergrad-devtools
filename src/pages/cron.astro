@@ -18,9 +18,5 @@ import CronParser from '../components/tools/CronParser.tsx';
       <li><code>L</code> 最后（如日字段 <code>L</code> = 月末最后一天）</li>
       <li>周字段支持 <code>SUN-SAT</code> 或 <code>0-6</code>（0=周日）</li>
     </ul>
-    <h3>常见问题</h3>
-    <div class="faq-item"><div class="faq-q">时区按什么算？</div><div class="faq-a">本工具按浏览器本地时区计算执行时间。生产环境中 Linux crontab 用服务器时区，Spring/Quartz 等可配置时区，部署时请确认时区一致。</div></div>
-    <div class="faq-item"><div class="faq-q">6 段和 5 段有什么区别？</div><div class="faq-a">5 段最小粒度是分钟，6 段多了秒字段，适合需要秒级调度的场景（如 Quartz）。Linux crontab 只支持 5 段。</div></div>
-    <div class="faq-item"><div class="faq-q">为什么我的表达式解析失败？</div><div class="faq-a">常见原因：字段数不是 5 或 6 段；取值越界（如月份写 13）；周字段大小写问题（部分实现要求大写）。请对照字段顺序检查。</div></div>
   </div>
 </ToolLayout>

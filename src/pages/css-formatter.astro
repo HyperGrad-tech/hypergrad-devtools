@@ -12,8 +12,5 @@ import CssFormatter from '../components/tools/CssFormatter.tsx';
     <pre><code>{'.btn { padding : 8px 16px ; color : #fff ; /* 按钮 */ }'}</code></pre>
     <p>压缩后：</p>
     <pre><code>{'.btn{padding:8px 16px;color:#fff}'}</code></pre>
-    <h3>常见问题</h3>
-    <div class="faq-item"><div class="faq-q">压缩会去掉所有注释吗？</div><div class="faq-a">是。压缩模式移除所有 /* */ 注释以最大化减小体积。如需保留版权注释，压缩前请手动备份。</div></div>
-    <div class="faq-item"><div class="faq-q">支持 SCSS / Less 吗？</div><div class="faq-a">本工具使用 postcss 解析器，支持嵌套、变量等基础 SCSS/Less 写法，复杂函数和 mixin 可能解析失败。</div></div>
   </div>
 </ToolLayout>

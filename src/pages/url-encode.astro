@@ -13,8 +13,5 @@ import UrlEncoder from '../components/tools/UrlEncoder.tsx';
       <li>前端路由：query string 中的特殊字符</li>
       <li>重定向：redirect_uri 参数需要编码</li>
     </ul>
-    <h3>常见问题</h3>
-    <div class="faq-item"><div class="faq-q">中文被编码成了 %E4%B8%AD 是什么？</div><div class="faq-a">这是 UTF-8 编码后的百分号表示。中文字符「中」的 UTF-8 字节是 E4 B8 AD，每个字节前加 % 即 %E4%B8%AD。</div></div>
-    <div class="faq-item"><div class="faq-q">应该用 encodeURI 还是 encodeURIComponent？</div><div class="faq-a">编码整条 URL 用 encodeURI（保留 / ? : @ & 等）；编码 URL 的某个参数值用 encodeURIComponent（这些字符也要编码）。</div></div>
   </div>
 </ToolLayout>

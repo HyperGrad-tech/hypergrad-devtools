@@ -15,8 +15,5 @@ import RegexTester from '../components/tools/RegexTester.tsx';
       <li><code>s</code> 让 . 匹配换行符</li>
       <li><code>u</code> Unicode 模式</li>
     </ul>
-    <h3>常见问题</h3>
-    <div class="faq-item"><div class="faq-q">为什么带 g 标志时只匹配到部分结果？</div><div class="faq-a">带 g 标志的正则对象是有状态的（lastIndex）。本工具已正确处理，会遍历所有匹配。如出现死循环（零宽匹配），已加 10000 次安全限制。</div></div>
-    <div class="faq-item"><div class="faq-q">支持 PCRE / Python / Java 的正则语法吗？</div><div class="faq-a">本工具基于 JavaScript RegExp，支持大部分通用语法。少数高级特性（如命名捕获组 (?&lt;name&gt;) 在 ES2018+ 支持、负向断言等）视浏览器而定。</div></div>
   </div>
 </ToolLayout>

@@ -13,9 +13,5 @@ import SqlFormatter from '../components/tools/SqlFormatter.tsx';
       <li><strong>数仓 / 大数据</strong>：BigQuery、Redshift、Snowflake、Spark、Hive、ClickHouse、Trino/Presto。</li>
       <li><strong>通用</strong>：Standard SQL。</li>
     </ul>
-    <h3>常见问题</h3>
-    <div class="faq-item"><div class="faq-q">格式化会改我的 SQL 逻辑吗？</div><div class="faq-a">不会。本工具只调整空白、换行与关键字大小写，不修改语句结构、表名、字段名和值。原样保留所有标识符。</div></div>
-    <div class="faq-item"><div class="faq-q">方言选错了会怎样？</div><div class="faq-a">方言主要负责处理各数据库特有语法（如 PostgreSQL 的 :: 类型转换、SQL Server 的方括号标识符）。选错可能无法识别某些特有写法，但通用 SQL 语句通常仍能正常格式化。</div></div>
-    <div class="faq-item"><div class="faq-q">能压缩成单行吗？</div><div class="faq-a">可以。格式化后点击「压缩为单行」会去掉多余空白，把整段 SQL 合并为一行，方便放进代码字符串或日志。</div></div>
   </div>
 </ToolLayout>
