@@ -47,6 +47,17 @@ if (!tool) {
       'name': 'HyperGrad'
     }
   })} />
+  <!-- Baidu Tongji（跨子域追踪 hypergrad.cn） -->
+  <script is:inline>
+var _hmt = _hmt || [];
+_hmt.push(['_setCookieDomain', '.hypergrad.cn']);
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a778461c432b29b641ee950a9f686a65";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+  </script>
 </head>
 <body>
   <!-- DeepSeal 推广条 -->
@@ -78,7 +89,7 @@ if (!tool) {
 
       <!-- 隐私徽章 -->
       <div class="privacy-badge" style="margin-bottom: var(--space-lg);">
-        100% 本地处理 · 数据不离开浏览器 · 无追踪
+        100% 本地处理 · 数据不离开浏览器
       </div>
 
       <!-- 工具主体（由各页面通过 slot 传入 React 组件） -->
