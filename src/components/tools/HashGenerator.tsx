@@ -36,7 +36,14 @@ export default function HashGenerator() {
   return (
     <div>
       <div class="tool-card">
-        <div class="text-sm font-bold mb-md">输入内容</div>
+        <style>{`@keyframes hashPulse{0%,100%{opacity:1}50%{opacity:.25}}`}</style>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} class="mb-md">
+          <span class="text-sm font-bold">输入内容</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: '#16a34a', background: 'rgba(22,163,74,0.1)', padding: '2px 9px', borderRadius: '10px', fontWeight: 500 }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#16a34a', display: 'inline-block', animation: 'hashPulse 1.4s ease-in-out infinite' }}></span>
+            实时计算
+          </span>
+        </div>
         <textarea class="text-area" value={input} onChange={e => setInput(e.target.value)} placeholder="输入要计算哈希的文本" style={{ minHeight: '100px' }} />
         <div style={{ marginTop: '12px' }}>
           <label class="text-xs text-muted">HMAC 密钥（可选，用于带密钥哈希）</label>
